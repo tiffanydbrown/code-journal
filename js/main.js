@@ -10,7 +10,7 @@ $image.addEventListener('input', function (event) {
   $photo.setAttribute('src', inputImage);
 });
 
-$form.addEventListener('submit', function (event) {
+function handleSubmit(event) {
   event.preventDefault();
 
   const title = $form.elements.title.value;
@@ -26,10 +26,11 @@ $form.addEventListener('submit', function (event) {
   formValues.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries[0] = formValues;
-  // data.entries.unshift(formValues);
 
   const resetImage = event.target.value;
   $image.setAttribute('src', resetImage);
 
   $form.reset();
-});
+}
+
+$form.addEventListener('submit', handleSubmit);
