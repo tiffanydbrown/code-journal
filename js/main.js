@@ -1,12 +1,12 @@
 /* global data */
 
 const $image = document.querySelector('#photo');
-const $form = document.querySelector('#entry-form');
+const $form = document.querySelector('.journal-form');
 
 $image.addEventListener('input', function (event) {
   const inputImage = event.target.value;
 
-  inputImage.setAttribute('src', inputImage);
+  $image.setAttribute('src', inputImage);
 });
 
 $form.addEventListener('submit', function (event) {

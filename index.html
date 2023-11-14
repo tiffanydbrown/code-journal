@@ -25,50 +25,52 @@
     </header>
     <main class="container">
       <div data-view="entry-form">
-        <div class="row">
-          <div class="column-full">
-            <h1>New Entry</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column-half">
-            <input
-              type="image"
-              id="image"
-              alt="Blank image"
-              src="images/placeholder-image-square.jpg" />
-          </div>
-          <div class="column-half">
-            <div class="row">
-              <p>Title</p>
-            </div>
-            <div class="row">
-              <input type="text" id="title" name="title" required />
-            </div>
-            <div class="row">
-              <p>Photo URL</p>
-            </div>
-            <div class="row">
-              <input type="text" id="photo" name="photo" required />
+        <form action="" method="get" class="journal-form">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="column-full">
-            <div class="row">
-              <label for="notes">Notes</label>
+          <div class="row">
+            <div class="column-half">
+              <input
+                type="image"
+                id="image"
+                alt="Blank image"
+                src="images/placeholder-image-square.jpg" />
             </div>
-            <div class="row">
-              <input type="text" id="notes" name="notes" required />
+            <div class="column-half">
+              <div class="row">
+                <p>Title</p>
+              </div>
+              <div class="row">
+                <input type="text" id="title" name="title" required />
+              </div>
+              <div class="row">
+                <p>Photo URL</p>
+              </div>
+              <div class="row">
+                <input type="text" id="photo" name="photo" required />
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="column-full">
-              <button class="save-button" type="button">SAVE</button>
+              <div class="row">
+                <label for="notes">Notes</label>
+              </div>
+              <div class="row">
+                <input type="text" id="notes" name="notes" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-full">
+                <button class="save-button" type="button">SAVE</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div data-view="entries" class="hidden"></div>
+          <div data-view="entries" class="hidden"></div>
+        </form>
       </div>
     </main>
     <script src="js/data.js"></script>
