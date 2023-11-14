@@ -1,0 +1,57 @@
+header {
+  background-color: #4c2676;
+  color: #fff;
+}
+
+h1 {
+  display: flex;
+  margin: 0;
+  padding: 2.5%;
+  width: 100vw;
+}
+
+body {
+  background-color: #eee;
+}
+
+.row {
+  background-color: #eee;
+  width: auto;
+  margin: 0 auto;
+}
+
+.placeholder-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5em;
+}
+
+#title,
+#photo {
+  width: 320px;
+  border-style: none;
+  box-shadow: inset 2px 2px #c4c4c4;
+}
+
+#notes {
+  width: 750px;
+  height: 175px;
+  border-style: none;
+  box-shadow: inset 2px 2px #c4c4c4;
+  margin-top: 1em;
+}
+
+.save-button {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: #4c2676;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  right: 420px;
+  margin-top: 1em;
+}
