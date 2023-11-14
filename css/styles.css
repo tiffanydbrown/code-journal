@@ -24,7 +24,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   padding: 0.5em;
 }
 
@@ -45,13 +46,16 @@ body {
 
 .save-button {
   display: flex;
-  position: absolute;
+  position: static;
   align-items: center;
   justify-content: center;
+  width: 70px;
+  height: 35px;
   background-color: #4c2676;
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  right: 420px;
+
+  /* right: 420px; */
   margin-top: 1em;
 }
