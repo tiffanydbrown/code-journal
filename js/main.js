@@ -1,12 +1,13 @@
 /* global data */
 
 const $image = document.querySelector('#photo');
-const $form = document.querySelector('.journal-form');
+const $photo = document.querySelector('#image');
+const $form = document.querySelector('#journal-form');
 
 $image.addEventListener('input', function (event) {
   const inputImage = event.target.value;
 
-  $image.setAttribute('src', inputImage);
+  $photo.setAttribute('src', inputImage);
 });
 
 $form.addEventListener('submit', function (event) {
@@ -24,8 +25,11 @@ $form.addEventListener('submit', function (event) {
 
   formValues.entryId = data.nextEntryId;
   data.nextEntryId++;
-  data.entries.unshift(formValues);
+  data.entries[0] = formValues;
+  // data.entries.unshift(formValues);
 
-  $image.reset();
+  const resetImage = event.target.value;
+  $image.setAttribute('src', resetImage);
+
   $form.reset();
 });
