@@ -27,7 +27,7 @@ function handleSubmit(event) {
   data.nextEntryId++;
   data.entries[0] = formValues;
 
-  $image.setAttribute('src', 'images/placeholder-image');
+  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   $form.reset();
 }
