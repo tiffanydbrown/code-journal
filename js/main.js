@@ -27,8 +27,7 @@ function handleSubmit(event) {
   data.nextEntryId++;
   data.entries[0] = formValues;
 
-  const resetImage = event.target.value;
-  $image.setAttribute('src', resetImage);
+  $image.setAttribute('src', 'images/placeholder-image');
 
   $form.reset();
 }
