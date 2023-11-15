@@ -21,7 +21,8 @@ body {
   width: 100%;
   border-style: none;
   box-shadow: inset 2px 2px #c4c4c4;
-  margin-top: 1em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #notes {
@@ -29,7 +30,7 @@ body {
   height: 175px;
   border-style: none;
   box-shadow: inset 2px 2px #c4c4c4;
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .save-button {
@@ -39,7 +40,7 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .justify-end {
