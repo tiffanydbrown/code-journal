@@ -4,10 +4,8 @@ header {
 }
 
 h1 {
-  display: flex;
   margin: 0;
   padding: 2.5%;
-  width: 100vw;
 }
 
 body {
@@ -15,12 +13,7 @@ body {
 }
 
 #image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  height: auto;
-  padding: 0.5em;
+  width: 100%;
 }
 
 #title,
@@ -28,6 +21,7 @@ body {
   width: 100%;
   border-style: none;
   box-shadow: inset 2px 2px #c4c4c4;
+  margin-top: 1em;
 }
 
 #notes {
@@ -50,4 +44,8 @@ body {
 
 .justify-end {
   justify-content: end;
+}
+
+.width {
+  width: 100%;
 }
