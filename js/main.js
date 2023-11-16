@@ -31,7 +31,7 @@ function handleSubmit(event) {
 
   $form.reset();
 
-  $ul.prepend(renderEntry('#entry-form'));
+  $ul.prepend(renderEntry('$newEntry'));
   viewSwap($entryView);
 
   toggleNoEntries();
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const $newEntry = renderEntry(data.entries[i]);
     $ul.appendChild($newEntry);
   }
-  viewSwap('data.view');
+  viewSwap(data.view);
 
   toggleNoEntries();
 });
