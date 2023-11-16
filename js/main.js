@@ -33,3 +33,39 @@ function handleSubmit(event) {
 }
 
 $form.addEventListener('submit', handleSubmit);
+
+function renderEntry(entry) {
+  const $li = document.createElement('li');
+  $li.setAttribute('class', 'row');
+
+  const $picDiv = document.createElement('div');
+  $picDiv.setAttribute('class', 'column-half');
+
+  const $entryImage = document.createElement('img');
+  $entryImage.setAttribute('src', data.entries.photo);
+
+  const $chDiv = document.createElement('div');
+  $chDiv.setAttribute('class', 'column-half');
+
+  const $entryTitle = document.createElement('p');
+  $entryTitle.setAttribute('class', data.entries.title);
+
+  const $entryNote = document.createElement('p');
+  $entryNote.setAttribute('class', data.entries.note);
+
+  $li.appendChild($picDiv);
+  $picDiv.appendChild($entryImage);
+  $chDiv.appendChild($entryTitle);
+  $chDiv.appendChild($entryNote);
+
+  return $picDiv;
+}
+
+const $ul = document.querySelector('.ul');
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  for (let i = 0; i < data.entries.length; i++) {
+    const $newEntry = renderEntry(data.entries[i]);
+    $ul.appendChild($newEntry);
+  }
+});

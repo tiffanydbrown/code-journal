@@ -50,3 +50,30 @@ body {
 .width {
   width: 100%;
 }
+
+.new-button {
+  width: 70px;
+  height: 35px;
+  background-color: #4c2676;
+  color: #fff;
+  font-size: larger;
+  font-family: 'Playfair Display', serif;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.align {
+  text-align: right;
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+#entries-image2,
+#entries-image3 {
+  width: 100%;
+}

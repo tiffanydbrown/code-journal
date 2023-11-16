@@ -24,7 +24,7 @@
       </div>
     </header>
     <main class="container">
-      <div data-view="entry-form">
+      <div data-view="entry-form" class="hidden">
         <form id="journal-form">
           <div class="row">
             <div class="column-full">
@@ -60,11 +60,40 @@
           </div>
         </form>
       </div>
-      <div data-view="entries" class="hidden">
+      <div data-view="entries">
+        <div class="row">
+          <div class="column-half">
+            <h1>Entries</h1>
+          </div>
+          <div class="column-half align">
+            <button class="new-button"><strong>NEW</strong></button>
+          </div>
+        </div>
         <ul>
-          <li>A newer image</li>
-          <li>this is a newer image</li>
-          <li>A new image</li>
+          <li class="row">
+            <div class="column-half">
+              <img
+                id="entries-image2"
+                alt="Lake landscape"
+                src="https://www.hdwallpapers.in/thumbs/2021/landscape_view_of_snow_covered_mountains_and_river_between_trees_covered_mountains_with_path_4k_8k_hd_beautiful-t2.jpg" />
+            </div>
+            <div class="column-half">
+              <p class="title"><strong>is a newer image</strong></p>
+              <p class="note">A pretty lake!</p>
+            </div>
+          </li>
+          <li class="row">
+            <div class="column-half">
+              <img
+                id="entries-image3"
+                alt="Detective Pikachu"
+                src="https://ichef.bbci.co.uk/images/ic/640x360/p0dmj01q.jpg" />
+            </div>
+            <div class="column-half">
+              <p class="title"><strong>new image</strong></p>
+              <p class="note">I guess its not a new image!</p>
+            </div>
+          </li>
         </ul>
       </div>
     </main>
