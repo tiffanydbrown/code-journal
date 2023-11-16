@@ -31,7 +31,7 @@ function handleSubmit(event) {
 
   $form.reset();
 
-  $ul.prepend(renderEntry('$newEntry'));
+  $ul.prepend(renderEntry('entries'));
   viewSwap($entryView);
 
   toggleNoEntries();
