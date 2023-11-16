@@ -8,6 +8,16 @@ h1 {
   padding: 2.5%;
 }
 
+#show-entries-link {
+  color: #fff;
+  font-size: 28px;
+}
+
+.align-left {
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
 body {
   background-color: #eee;
 }
@@ -60,12 +70,11 @@ body {
   font-family: 'Playfair Display', serif;
   padding: 5px;
   border-radius: 5px;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
 }
 
 .align {
   text-align: right;
+  margin-top: 1rem;
 }
 
 li {

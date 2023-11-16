@@ -30,6 +30,10 @@ function handleSubmit(event) {
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   $form.reset();
+  renderEntry(formValues);
+  $ul.prepend(renderEntry());
+  viewSwap('entries');
+  toggleNoEntries();
 }
 
 $form.addEventListener('submit', handleSubmit);
@@ -68,14 +72,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const $newEntry = renderEntry(data.entries[i]);
     $ul.appendChild($newEntry);
   }
+  viewSwap('entries');
 });
 
-function toggleNoEntries() {
-  const noEntriesText = document.getElementById('noEntriesText');
+const noEntriesText = document.getElementById('noEntriesText');
 
-  noEntriesText.classList.toggle('hidden');
+function toggleNoEntries() {
+  if (data.entries.length === 0) {
+    noEntriesText.classList.remove('hidden');
+  } else {
+    noEntriesText.classList.add('hidden');
+  }
 }
 
-document
-  .getElementById('toggleButton')
-  .addEventListener('click', toggleNoEntries);
+const $entryView = document.querySelector('#entries');
+const $formView = document.querySelector('#entry-form');
+
+function viewSwap(viewName) {
+  if (viewName === 'entry-form') {
+    $entryView.classList.add('hidden');
+    $formView.classList.remove('hidden');
+  } else {
+    $formView.classList.add('hidden');
+    $entryView.classList.remove('hidden');
+  }
+  data.view = viewName;
+}
+
+const $entries = document.getElementById('show-entries-link');
+$entries.addEventListener('click', function () {
+  viewSwap('entries');
+  toggleNoEntries();
+});
+
+const $entryForm = document.getElementById('showEntryFormBtn');
+$entryForm.addEventListener('click', function () {
+  viewSwap('entry-form');
+});
