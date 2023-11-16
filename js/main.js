@@ -31,8 +31,7 @@ function handleSubmit(event) {
 
   $form.reset();
 
-  renderEntry(formValues);
-  $ul.prepend(renderEntry());
+  $ul.prepend(renderEntry(formValues));
   viewSwap($entryView);
 
   toggleNoEntries();
@@ -54,13 +53,14 @@ function renderEntry(entry) {
   $chDiv.setAttribute('class', 'column-half');
 
   const $entryTitle = document.createElement('p');
-  $entryTitle.setAttribute('class', entry.title);
+  $entryTitle.textContent = entry.title;
 
   const $entryNote = document.createElement('p');
-  $entryNote.setAttribute('class', entry.notes);
+  $entryNote.textContent = entry.notes;
 
   $li.appendChild($picDiv);
   $picDiv.appendChild($entryImage);
+  $li.appendChild($chDiv);
   $chDiv.appendChild($entryTitle);
   $chDiv.appendChild($entryNote);
 
