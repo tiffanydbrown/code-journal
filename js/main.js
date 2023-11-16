@@ -31,7 +31,7 @@ function handleSubmit(event) {
 
   $form.reset();
 
-  $ul.prepend(renderEntry(formValues));
+  $ul.prepend(renderEntry('#entry-form'));
   viewSwap($entryView);
 
   toggleNoEntries();
@@ -46,7 +46,7 @@ function renderEntry(entry) {
   const $picDiv = document.createElement('div');
   $picDiv.setAttribute('class', 'column-half');
 
-  const $entryImage = document.createElement('img');
+  const $entryImage = document.createElement('img', 'alt');
   $entryImage.setAttribute('src', entry.photo);
 
   const $chDiv = document.createElement('div');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const $newEntry = renderEntry(data.entries[i]);
     $ul.appendChild($newEntry);
   }
-  viewSwap('entries');
+  viewSwap('data.view');
 
   toggleNoEntries();
 });
