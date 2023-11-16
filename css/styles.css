@@ -8,11 +8,21 @@ h1 {
   padding: 2.5%;
 }
 
+#show-entries-link {
+  color: #fff;
+  font-size: 28px;
+}
+
+.align-left {
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
 body {
   background-color: #eee;
 }
 
-#image {
+img {
   width: 100%;
 }
 
@@ -49,4 +59,25 @@ body {
 
 .width {
   width: 100%;
+}
+
+.new-button {
+  width: 70px;
+  height: 35px;
+  background-color: #4c2676;
+  color: #fff;
+  font-size: larger;
+  font-family: 'Playfair Display', serif;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.align {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
 }

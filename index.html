@@ -18,13 +18,20 @@
   <body>
     <header>
       <div class="container">
-        <div class="column-full">
-          <h1>Code Journal</h1>
+        <div class="row">
+          <div class="column-half">
+            <h1>Code Journal</h1>
+          </div>
+          <div class="column-half align-left">
+            <a style="text-decoration: none" href="#" id="show-entries-link"
+              >Entries</a
+            >
+          </div>
         </div>
       </div>
     </header>
     <main class="container">
-      <div data-view="entry-form">
+      <div id="entry-form" data-view="entry-form" class="hidden">
         <form id="journal-form">
           <div class="row">
             <div class="column-full">
@@ -60,7 +67,26 @@
           </div>
         </form>
       </div>
-      <div data-view="entries" class="hidden"></div>
+      <div id="entries" data-view="entries">
+        <div class="row">
+          <div class="column-half">
+            <h1>Entries</h1>
+          </div>
+          <div class="column-half align">
+            <a
+              style="text-decoration: none"
+              href="#"
+              class="new-button"
+              id="showEntryFormBtn"
+              ><strong>NEW</strong></a
+            >
+          </div>
+        </div>
+        <p id="noEntriesText">
+          no entries have been recorded which matches the figma
+        </p>
+        <ul class="ul"></ul>
+      </div>
     </main>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
