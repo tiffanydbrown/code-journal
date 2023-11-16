@@ -77,3 +77,7 @@ li {
 #entries-image3 {
   width: 100%;
 }
+
+.hidden {
+  display: none;
+}

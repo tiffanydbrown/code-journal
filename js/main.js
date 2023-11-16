@@ -69,3 +69,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     $ul.appendChild($newEntry);
   }
 });
+
+function toggleNoEntries() {
+  const noEntriesText = document.getElementById('noEntriesText');
+
+  noEntriesText.classList.toggle('hidden');
+}
+
+document
+  .getElementById('toggleButton')
+  .addEventListener('click', toggleNoEntries);
