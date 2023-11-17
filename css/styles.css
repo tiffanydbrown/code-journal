@@ -81,3 +81,8 @@ li {
   list-style-type: none;
   font-size: 20px;
 }
+
+.fa-pencil {
+  color: #1e3050;
+  margin-left: 20rem;
+}

@@ -55,6 +55,9 @@ function renderEntry(entry) {
   const $entryTitle = document.createElement('p');
   $entryTitle.textContent = entry.title;
 
+  const $icon = document.createElement('i');
+  $icon.setAttribute('class', 'fa-solid fa-pencil');
+
   const $entryNote = document.createElement('p');
   $entryNote.textContent = entry.notes;
 
@@ -63,11 +66,29 @@ function renderEntry(entry) {
   $li.appendChild($chDiv);
   $chDiv.appendChild($entryTitle);
   $chDiv.appendChild($entryNote);
+  $entryTitle.appendChild($icon);
+
+  $li.setAttribute('data-entry-id', entry.entryId);
 
   return $li;
 }
 
 const $ul = document.querySelector('.ul');
+
+// $ul.addEventListener('click', (event) => {
+//   viewSwap('entry-form');
+
+//   for(let i = 0; i < data.entries.length; i++) {
+//     if('data-entry-id' === data.entries[i]) {
+//       const $id = entryId.getAttribute('data-entry-id');
+//       if(data.entries[i].entryId === Number(data.entries[i].entryId)){
+//       }
+//     }
+//     data.editing = data.entries[i];
+//   }
+//   const $editEntry = event.target.closest('.li');
+
+// })
 
 document.addEventListener('DOMContentLoaded', (event) => {
   for (let i = 0; i < data.entries.length; i++) {
