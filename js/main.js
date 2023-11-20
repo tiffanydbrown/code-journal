@@ -23,25 +23,37 @@ function handleSubmit(event) {
     notes,
   };
 
-  formValues.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(formValues);
-
-  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-
-  $form.reset();
-
   $ul.prepend(renderEntry('entries'));
   viewSwap($entryView);
 
   toggleNoEntries();
 
-  //   if(data.editing === null) {
-  //     renderEntry();
-  //   } else if (data.editing !== null) {
+  if (data.editing === null) {
+    renderEntry('entries');
+    formValues.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(formValues);
+  } else if (data.editing !== null) {
+    data.editing = data.entries.findIndex((entry) => entry.id === data.editing);
+    if (data.editing !== -1) {
+      formValues.id = data.editing;
 
-  //     showFormAndEditEntry();
-  //   }
+      const newDOM = renderEntry(formValues);
+      const existingLi = document.querySelector(
+        'li[data-entry-id="' + data.editing + '"]'
+      );
+
+      if (existingLi) {
+        existingLi.replaceWith(newDOM);
+        const $updateEntry = document.getElementById('entry-form');
+        $updateEntry.innerText = 'New Entry';
+        // data.editing = null;
+      }
+    }
+  }
+  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+
+  $form.reset();
 }
 
 $form.addEventListener('submit', handleSubmit);
@@ -87,11 +99,11 @@ $ul.addEventListener('click', (event) => {
 
   const $postedEntry = event.target.closest('.li');
   if ($postedEntry) {
-    const $clickedEntryId = $postedEntry.getItem('data-entry-id');
+    const $clickedEntryId = $postedEntry.getAttribute('data-entry-id');
 
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === $clickedEntryId) {
-        data.editing = data.entries[i]; // entry
+        // data.editing = entry; // entry
         showFormAndEditEntry(data.entries[i]);
         break;
       }
