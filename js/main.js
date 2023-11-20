@@ -47,7 +47,6 @@ function handleSubmit(event) {
         existingLi.replaceWith(newDOM);
         const $updateEntry = document.getElementById('entry-form');
         $updateEntry.innerText = 'New Entry';
-        // data.editing = null;
       }
     }
   }
@@ -103,9 +102,8 @@ $ul.addEventListener('click', (event) => {
 
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === $clickedEntryId) {
-        // data.editing = entry; // entry
+        data.editing = data.entries[i];
         showFormAndEditEntry(data.entries[i]);
-        break;
       }
     }
   }
@@ -115,8 +113,8 @@ function showFormAndEditEntry(entry) {
   const $editTitle = document.getElementsById('#title');
   const $editDescription = document.getElementById('#notes');
 
-  $editTitle.value = entry.title;
-  $editDescription.value = entry.note;
+  $editTitle.value = data.entries.title;
+  $editDescription.value = data.entries.note;
 
   const $editEntry = document.getElementById('entry-form');
   $editEntry.innerText = 'Edit Entry';
