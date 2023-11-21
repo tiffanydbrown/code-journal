@@ -33,6 +33,7 @@ function handleSubmit(event) {
     formValues.entryId = data.nextEntryId;
     data.nextEntryId++;
     data.entries.unshift(formValues);
+    console.log(formValues.entryId);
   } else if (data.editing !== null) {
     data.editing = data.entries.findIndex((entry) => entry.id === data.editing);
     if (data.editing !== -1) {
@@ -99,13 +100,10 @@ $ul.addEventListener('click', (event) => {
   if (event.target.tagName === 'I') {
     // event.target.tagName === I
     const $clickedEntryId = $postedEntry.getAttribute('data-entry-id');
-    console.log(isNaN($clickedEntryId));
+
     for (let i = 0; i < data.entries.length; i++) {
-      console.log(data.entries[0].entryId);
       if (data.entries[i].entryId === Number($clickedEntryId)) {
-        console.log('hello');
         data.editing = data.entries[i];
-        console.log('testing again');
         showFormAndEditEntry(data.entries[i]);
       }
     }
@@ -113,19 +111,16 @@ $ul.addEventListener('click', (event) => {
 });
 
 function showFormAndEditEntry(entry) {
-  console.log('testing');
   const $editTitle = document.querySelector('#title');
-  console.log($editTitle);
   const $editDescription = document.querySelector('#notes');
   const $editURL = document.querySelector('#image');
-  console.log(entry);
 
   $editTitle.setAttribute('value', entry.title);
   $editDescription.setAttribute('value', entry.notes); // add imageurl & image to populate
   $editURL.setAttribute('src', entry.photo);
 
-  const $editEntry = document.getElementById('entry-form');
-  $editEntry.innerText = 'Edit Entry';
+  const $editEntry = document.getElementById('entries');
+  $editEntry.innerText = 'Edit Entry'; // change title from New Entry to Edit Entry
 
   viewSwap('entry-form');
 }
