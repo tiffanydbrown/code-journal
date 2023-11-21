@@ -92,17 +92,20 @@ function renderEntry(entry) {
 }
 
 const $ul = document.querySelector('.ul');
+// const I = document.querySelector('i');
 
 $ul.addEventListener('click', (event) => {
-  viewSwap('entry-form');
-
-  const $postedEntry = event.target.closest('.li');
-  if ($postedEntry) {
+  const $postedEntry = event.target.closest('li');
+  if (event.target.tagName === 'I') {
+    // event.target.tagName === I
     const $clickedEntryId = $postedEntry.getAttribute('data-entry-id');
-
+    console.log(isNaN($clickedEntryId));
     for (let i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].entryId === $clickedEntryId) {
+      console.log(data.entries[0].entryId);
+      if (data.entries[i].entryId === Number($clickedEntryId)) {
+        console.log('hello');
         data.editing = data.entries[i];
+        console.log('testing again');
         showFormAndEditEntry(data.entries[i]);
       }
     }
@@ -110,14 +113,21 @@ $ul.addEventListener('click', (event) => {
 });
 
 function showFormAndEditEntry(entry) {
-  const $editTitle = document.getElementsById('#title');
-  const $editDescription = document.getElementById('#notes');
+  console.log('testing');
+  const $editTitle = document.querySelector('#title');
+  console.log($editTitle);
+  const $editDescription = document.querySelector('#notes');
+  const $editURL = document.querySelector('#image');
+  console.log(entry);
 
-  $editTitle.value = data.entries.title;
-  $editDescription.value = data.entries.note;
+  $editTitle.setAttribute('value', entry.title);
+  $editDescription.setAttribute('value', entry.notes); // add imageurl & image to populate
+  $editURL.setAttribute('src', entry.photo);
 
   const $editEntry = document.getElementById('entry-form');
   $editEntry.innerText = 'Edit Entry';
+
+  viewSwap('entry-form');
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
