@@ -93,14 +93,13 @@ function renderEntry(entry) {
 }
 
 const $ul = document.querySelector('.ul');
-// const I = document.querySelector('i');
 
 $ul.addEventListener('click', (event) => {
   const $postedEntry = event.target.closest('li');
   if (event.target.tagName === 'I') {
     // event.target.tagName === I
     const $clickedEntryId = $postedEntry.getAttribute('data-entry-id');
-
+    console.log($clickedEntryId);
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === Number($clickedEntryId)) {
         data.editing = data.entries[i];
@@ -120,8 +119,10 @@ function showFormAndEditEntry(entry) {
   $editURL.setAttribute('src', entry.photo);
 
   const $editEntry = document.getElementById('entries');
-  $editEntry.innerText = 'Edit Entry'; // change title from New Entry to Edit Entry
-
+  $editEntry.innerText = 'Edit Entry';
+  // const $h1 = document.getElementsByTagName('h1');
+  // $h1.textContent = 'Edit Entry';// change title from New Entry to Edit Entry
+  console.log($editDescription, $editURL, $editTitle);
   viewSwap('entry-form');
 }
 
