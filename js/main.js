@@ -1,13 +1,19 @@
 /* global data */
 
-const $image = document.querySelector('#photo');
-const $photo = document.querySelector('#image');
+const $image = document.querySelector('#image');
+const $photoURL = document.querySelector('#photo');
 const $form = document.querySelector('#journal-form');
+const $ul = document.querySelector('.ul');
+const $h1 = document.querySelector('.heading');
+const $entryView = document.querySelector('#entries');
+const $formView = document.querySelector('#entry-form');
+const $editTitle = document.querySelector('#title');
+const $editDescription = document.querySelector('#notes');
 
 $image.addEventListener('input', function (event) {
   const inputImage = event.target.value;
 
-  $photo.setAttribute('src', inputImage);
+  $image.setAttribute('src', inputImage);
 });
 
 function handleSubmit(event) {
@@ -35,23 +41,26 @@ function handleSubmit(event) {
     data.entries.unshift(formValues);
     console.log(formValues.entryId);
   } else if (data.editing !== null) {
-    data.editing = data.entries.findIndex((entry) => entry.id === data.editing);
-    if (data.editing !== -1) {
-      formValues.id = data.editing;
+    formValues.entryId = data.editing.entryId;
 
-      const newDOM = renderEntry(formValues);
-      const existingLi = document.querySelector(
-        'li[data-entry-id="' + data.editing + '"]'
-      );
-
-      if (existingLi) {
-        existingLi.replaceWith(newDOM);
-        const $updateEntry = document.getElementById('entry-form');
-        $updateEntry.innerText = 'New Entry';
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === formValues.entryId) {
+        data.entries[i] = formValues;
       }
     }
+
+    const newDOM = renderEntry(formValues);
+    const existingLi = document.querySelector(
+      `li[data-entry-id=" data.editing"]`
+    );
+
+    if (existingLi) {
+      existingLi.replaceWith(newDOM);
+      const $updateEntry = document.getElementById('entry-form');
+      $updateEntry.innerText = 'New Entry';
+    }
   }
-  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $photoURL.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   $form.reset();
 }
@@ -92,14 +101,11 @@ function renderEntry(entry) {
   return $li;
 }
 
-const $ul = document.querySelector('.ul');
-
 $ul.addEventListener('click', (event) => {
   const $postedEntry = event.target.closest('li');
   if (event.target.tagName === 'I') {
-    // event.target.tagName === I
     const $clickedEntryId = $postedEntry.getAttribute('data-entry-id');
-    console.log($clickedEntryId);
+
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === Number($clickedEntryId)) {
         data.editing = data.entries[i];
@@ -110,19 +116,15 @@ $ul.addEventListener('click', (event) => {
 });
 
 function showFormAndEditEntry(entry) {
-  const $editTitle = document.querySelector('#title');
-  const $editDescription = document.querySelector('#notes');
-  const $editURL = document.querySelector('#image');
+  console.log(entry);
+  $editTitle.value = entry.title;
+  $editDescription.value = entry.notes;
+  $photoURL.value = entry.photo;
 
-  $editTitle.setAttribute('value', entry.title);
-  $editDescription.setAttribute('value', entry.notes); // add imageurl & image to populate
-  $editURL.setAttribute('src', entry.photo);
+  $image.src = entry.photo;
 
-  const $editEntry = document.getElementById('entries');
-  $editEntry.innerText = 'Edit Entry';
-  // const $h1 = document.getElementsByTagName('h1');
-  // $h1.textContent = 'Edit Entry';// change title from New Entry to Edit Entry
-  console.log($editDescription, $editURL, $editTitle);
+  $h1.textContent = 'Edit Entry';
+
   viewSwap('entry-form');
 }
 
@@ -145,9 +147,6 @@ function toggleNoEntries() {
     $noEntriesText.classList.add('hidden');
   }
 }
-
-const $entryView = document.querySelector('#entries');
-const $formView = document.querySelector('#entry-form');
 
 function viewSwap(viewName) {
   if (viewName === 'entry-form') {
