@@ -29,17 +29,15 @@ function handleSubmit(event) {
     notes,
   };
 
-  $ul.prepend(renderEntry('entries'));
   viewSwap($entryView);
 
   toggleNoEntries();
 
   if (data.editing === null) {
-    renderEntry('entries');
+    $ul.prepend(renderEntry('entries'));
     formValues.entryId = data.nextEntryId;
     data.nextEntryId++;
     data.entries.unshift(formValues);
-    console.log(formValues.entryId);
   } else if (data.editing !== null) {
     formValues.entryId = data.editing.entryId;
 
@@ -51,12 +49,12 @@ function handleSubmit(event) {
 
     const newDOM = renderEntry(formValues);
     const existingLi = document.querySelector(
-      `li[data-entry-id=" data.editing"]`
+      `li[data-entry-id="${data.editing.entryId}"]`
     );
-
+    console.log(existingLi);
     if (existingLi) {
       existingLi.replaceWith(newDOM);
-      const $updateEntry = document.getElementById('entry-form');
+      const $updateEntry = document.getElementById('entryHead');
       $updateEntry.innerText = 'New Entry';
     }
   }
