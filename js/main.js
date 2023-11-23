@@ -51,7 +51,7 @@ function handleSubmit(event) {
     const existingLi = document.querySelector(
       `li[data-entry-id="${data.editing.entryId}"]`
     );
-    console.log(existingLi);
+
     if (existingLi) {
       existingLi.replaceWith(newDOM);
       const $updateEntry = document.getElementById('entryHead');
@@ -114,7 +114,6 @@ $ul.addEventListener('click', (event) => {
 });
 
 function showFormAndEditEntry(entry) {
-  console.log(entry);
   $editTitle.value = entry.title;
   $editDescription.value = entry.notes;
   $photoURL.value = entry.photo;
